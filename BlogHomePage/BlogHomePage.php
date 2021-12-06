@@ -67,7 +67,7 @@
             <li><a href="#" class="nav-link px-2 text-white">我的收藏</a></li>
             <li><a href="#" class="nav-link px-2 text-white">管理</a></li>
             <li><a href="#" class="nav-link px-2 text-white">账号设置</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">我的CSDN</a></li>
+            <li><a href="https://blog.csdn.net/weixin_45644335?spm=1010.2135.3001.5343" class="nav-link px-2 text-white" target="_blank">我的CSDN</a></li>
           </ul>
           <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
             <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
@@ -85,12 +85,9 @@
 
     <div class="row g-5">
       <div class="col-md-8">
-        <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        <h2 class="pb-4 mb-5 mt-4 fst-italic border-bottom">
           我的博客
-        </h3>
-
-
-
+        </h2>
       </div>
 
       <!-- 右边侧边栏关于博主的介绍 -->
