@@ -1,5 +1,5 @@
 <?php
-require_once("../conn.php");
+require_once("conn.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,7 @@ require_once("../conn.php");
     $sql = "insert into users value( '$userName','$userPass1','$name' )";
     if (mysqli_query($conn, $sql)) {
         echo "<script>alert('注册成功，马上登录')</script>";
-        header("Refresh:0;url=../index.php");
+        header("Refresh:0;url=index.php");
     } else {
         echo "注册失败 <br />";
         echo  "<a href='index.php'>请返回重新注册</a>";

@@ -10,11 +10,14 @@
   <title>Blog Template · Bootstrap v5.1</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/blog/">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
 
 
 
   <!-- Bootstrap core CSS -->
   <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="headers.css" rel="stylesheet">
+
 
   <style>
     .bd-placeholder-img {
@@ -29,15 +32,6 @@
       .bd-placeholder-img-lg {
         font-size: 3.5rem;
       }
-    }
-
-    .navStyle {
-      background-color: black;
-    }
-
-    .navStyle nav a {
-      color: rgb(230, 228, 228);
-      text-decoration: none;
     }
   </style>
 
@@ -74,22 +68,30 @@
     </header>
 
     <!-- 导航栏 -->
-    <div class="nav-scroller py-1 mb-2 navStyle">
-      <nav class="nav d-flex justify-content-between">
-        <a class="p-2 link-secondary" href="#">World</a>
-        <a class="p-2 link-secondary" href="#">U.S.</a>
-        <a class="p-2 link-secondary" href="#">Technology</a>
-        <a class="p-2 link-secondary" href="#">Design</a>
-        <a class="p-2 link-secondary" href="#">Culture</a>
-        <a class="p-2 link-secondary" href="#">Business</a>
-        <a class="p-2 link-secondary" href="#">Politics</a>
-        <a class="p-2 link-secondary" href="#">Opinion</a>
-        <a class="p-2 link-secondary" href="#">Science</a>
-        <a class="p-2 link-secondary" href="#">Health</a>
-        <a class="p-2 link-secondary" href="#">Style</a>
-        <a class="p-2 link-secondary" href="#">Travel</a>
-      </nav>
-    </div>
+    <header class="p-3 bg-dark text-white navStyle">
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+
+
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="#" class="nav-link px-2 text-secondary">首页</a></li>
+            <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
+            <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
+            <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+            <li><a href="#" class="nav-link px-2 text-white">我的CSDN</a></li>
+          </ul>
+
+          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+            <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+          </form>
+
+          <div class="text-end">
+            <button type="button" class="btn btn-outline-light me-2">Login</button>
+            <button type="button" class="btn btn-warning">Sign-up</button>
+          </div>
+        </div>
+      </div>
+    </header>
   </div>
 
   <main class="container">
