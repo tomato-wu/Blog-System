@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>博客网站登录界面</title>
   <link rel="stylesheet" href="./css/style.css">
+  <style>
+    body {
+      background-image: url(./assets/images/csdn.jpg);
+    }
+  </style>
 </head>
 
 <body>
@@ -15,7 +20,7 @@
       <!-- 学生端登录模块======================================================================================================== -->
 
       <div class="user singinBx">
-        <div class="imgBx"><img src="./img/p1.jpg" alt=""></div>
+        <div class="imgBx"><img src="./assets/images/p1.jpg" alt=""></div>
         <div class="formBx">
           <!-- 表单 -->
           <form action="loginUser.php" method="post" target='_blank' name="formBox" onsubmit="return LoginBtn()">
@@ -41,11 +46,11 @@
             <input type="text" name="adminName" placeholder="管理员账号">
             <input type="password" name="adminPassword" placeholder="管理员密码">
             <input type="submit" name="adminSubmit" value="登录">
-            <p class="signup">是否是学生?<a href="#" onclick="
+            <p class="signup">是否是用户?<a href="#" onclick="
                             toggleForm();">学生端</a></p>
           </form>
         </div>
-        <div class="imgBx"><img src="./img/p2.jpg" alt=""></div>
+        <div class="imgBx"><img src="./assets/images/p2.jpg" alt=""></div>
       </div>
     </div>
   </section>
@@ -95,8 +100,9 @@
       }
     }
 
+    // 去注册
     function gotoRegister() {
-      window.location.href = "./UserRegister/index.php";
+      window.location.href = "./UserRegister/RegisterPage.php";
     }
   </script>
 </body>
