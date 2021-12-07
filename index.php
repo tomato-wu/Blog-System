@@ -10,6 +10,11 @@
     body {
       background-image: url(./assets/images/csdn.jpg);
     }
+
+    span {
+      color: red;
+      font-size: 8px;
+    }
   </style>
 </head>
 
@@ -41,7 +46,8 @@
           <!-- 表单 -->
           <form action="addUser.php" method="post" target="_blank" name="RegisterFormBox" onsubmit="return registerBtn()">
             <h2>注册</h2>
-            <input class="text" type="text" placeholder="手机号码" name="RegisterUserName">
+            <input class="text" type="text" placeholder="手机号码" name="RegisterUserName" onblur="checkFirstName(this.value)">
+            <span id="txtHint"> </span>
             <input class="text" type="password" placeholder="密码" name="userPass1">
             <input class="text" type="password" placeholder="确认密码" name="userPass2">
             <input class="text" type="text" placeholder="昵称" name="name">
@@ -102,6 +108,28 @@
         alert("注册的账号密码和真实姓名不为空")
         return false
       }
+    }
+
+    // ajax验证注册的电话号码是否已经使用
+    function checkFirstName(str) {
+      if (str == "") {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+      }
+      if (window.XMLHttpRequest) {
+        // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+        xmlhttp = new XMLHttpRequest();
+      } else {
+        // IE6, IE5 浏览器执行代码
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+          document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
+        }
+      }
+      xmlhttp.open("GET", "checkName.php?q=" + str + "&t=" + Math.random(), true);
+      xmlhttp.send();
     }
   </script>
 </body>
