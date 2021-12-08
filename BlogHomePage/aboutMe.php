@@ -1,6 +1,9 @@
 <div class="col-md-4">
   <div class="position-sticky" style="top: 2rem;">
     <div class="p-4 mb-3 bg-light rounded">
+      <?php
+      echo "在线用户：" . $_SESSION['RightUserName'] . "    <a href='logout.php'>退出</a><hr>";
+      ?>
       <h4 class="fst-italic">博客简介</h4>
       <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers,
         content, or something else entirely. Totally up to you.</p>

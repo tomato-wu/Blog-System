@@ -1,3 +1,8 @@
+<?php
+session_start();
+require_once('../conn.php')
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -68,6 +73,7 @@
             <li><a href="?type=settingPage" class="nav-link px-2 text-white">账号设置</a></li>
             <li><a href="#" class="nav-link px-2 text-white">管理</a></li>
             <li><a href="https://blog.csdn.net/weixin_45644335?spm=1010.2135.3001.5343" class="nav-link px-2 text-white" target="_blank">我的CSDN</a></li>
+
           </ul>
           <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
             <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
