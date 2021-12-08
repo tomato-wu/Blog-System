@@ -47,6 +47,13 @@ while ($row = mysqli_fetch_array($result)) {
         font-size: 3.5rem;
       }
     }
+
+    .btnStyle {
+      position: relative;
+      width: 15vw;
+      left: 40%;
+      top: 15%;
+    }
   </style>
 
 
