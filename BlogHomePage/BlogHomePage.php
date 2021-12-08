@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.88.1">
-  <title>Blog Template · Bootstrap v5.1</title>
+  <title>博客主页</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/blog/">
   <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/headers/">
@@ -63,10 +63,10 @@
       <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="nav-link px-2 text-secondary">首页</a></li>
+            <li><a href="?type=myblog" class="nav-link px-2 text-secondary">首页</a></li>
             <li><a href="#" class="nav-link px-2 text-white">我的收藏</a></li>
+            <li><a href="?type=settingPage" class="nav-link px-2 text-white">账号设置</a></li>
             <li><a href="#" class="nav-link px-2 text-white">管理</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">账号设置</a></li>
             <li><a href="https://blog.csdn.net/weixin_45644335?spm=1010.2135.3001.5343" class="nav-link px-2 text-white" target="_blank">我的CSDN</a></li>
           </ul>
           <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -84,11 +84,21 @@
   <main class="container">
 
     <div class="row g-5">
-      <div class="col-md-8">
-        <h2 class="pb-4 mb-5 mt-4 fst-italic border-bottom">
-          我的博客
-        </h2>
-      </div>
+      <!--   表单显示      -->
+      <?php
+      if ($_GET['type'] == 'myblog') {
+        require_once "./blogPage/myblog.php";
+      }
+      if ($_GET['type'] == 'informationPage') {
+        require_once "./DetailPage/informationPage.php";
+      }
+      if ($_GET['type'] == 'selectPage') {
+        require_once "./DetailPage/selectPage.php";
+      }
+      if ($_GET['type'] == 'settingPage') {
+        require_once "./settingPage/settingInformation.php";
+      }
+      ?>
 
       <!-- 右边侧边栏关于博主的介绍 -->
       <?php
