@@ -1,6 +1,15 @@
 <?php
 session_start();
-require_once('../conn.php')
+require_once('../conn.php');
+
+$userName = $_SESSION['RightUserName'];
+$sql = "SELECT * FROM users  where userName=$userName";
+// 执行针对数据库的查询：
+$result = mysqli_query($conn, $sql);
+while ($row = mysqli_fetch_array($result)) {
+  $name = $row['name'];
+  $info = $row['info'];
+}
 ?>
 
 <!doctype html>
@@ -54,8 +63,12 @@ require_once('../conn.php')
     <header class="blog-header py-3">
       <div class="row flex-nowrap justify-content-between align-items-center">
 
-        <div class="col-2 text-center">
-          <a class="blog-header-logo text-dark" href="#"><strong>个人博客</strong></a>
+        <div class="col-3 text-center">
+          <a class="blog-header-logo text-dark" href="#"><strong>
+              <?php
+              echo $name . "的博客";
+              ?>
+            </strong></a>
         </div>
         <div class="col-4 d-flex justify-content-end align-items-center">
           <a class="btn btn-sm btn-outline-secondary" href="../index.php">退出</a>
