@@ -17,8 +17,9 @@
         $sql = "SELECT * FROM blog_type where userName=$userName";
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_array($result)) {
+          global  $blogType;
           $blogType = $row['type'];
-          echo "<li><a href='#'>$blogType</a></li>";
+          echo "<li><a href='BlogHomePage.php?type=$blogType'>$blogType</a></li>";
         }
         ?>
       </ol>

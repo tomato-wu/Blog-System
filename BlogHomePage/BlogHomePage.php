@@ -110,22 +110,38 @@ while ($row = mysqli_fetch_array($result)) {
   <main class="container">
 
     <div class="row g-5">
-      <!--   表单显示      -->
-      <?php
-      if ($_GET['type'] == 'myblog') {
-        require_once "./blogPage/myblog.php";
-      }
-      if ($_GET['type'] == 'informationPage') {
-        require_once "./DetailPage/informationPage.php";
-      }
-      if ($_GET['type'] == 'selectPage') {
-        require_once "./DetailPage/selectPage.php";
-      }
-      if ($_GET['type'] == 'settingPage') {
-        require_once "./settingPage/settingInformation.php";
-      }
-      ?>
+      <div class="col-md-8">
 
+        <h2 class="pb-4 mb-5 mt-4 fst-italic border-bottom">
+          我的博客
+        </h2>
+        <!--   表单显示      -->
+        <?php
+        // if ($_GET['type'] == 'myblog') {
+        //   require_once "./blogPage/myblog.php";
+        // }
+        // if ($_GET['type'] == 'informationPage') {
+        //   require_once "./DetailPage/informationPage.php";
+        // }
+        // if ($_GET['type'] == 'selectPage') {
+        //   require_once "./DetailPage/selectPage.php";
+        // }
+        // if ($_GET['type'] == 'settingPage') {
+        //   require_once "./settingPage/settingInformation.php";
+        // }
+        if (isset($_GET['type'])) {
+          $result = mysqli_query($conn, "SELECT * FROM blog_content where userName=$userName and type like '%{$_GET['type']}%' ");
+        } else {
+          $result = mysqli_query($conn, "SELECT * FROM blog_content where userName=$userName");
+        }
+        while ($row = mysqli_fetch_array($result)) {
+        ?>
+          <?php echo "<li class=\"list-group-item\"><a style='color: black' href='#'>{$row['title']} </a></li>" ?>
+        <?php
+        }
+
+        ?>
+      </div>
       <!-- 右边侧边栏关于博主的介绍 -->
       <?php
       require_once("./aboutMe.php")
