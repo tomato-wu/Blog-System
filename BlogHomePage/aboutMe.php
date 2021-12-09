@@ -19,7 +19,7 @@
         while ($row = mysqli_fetch_array($result)) {
           global  $blogType;
           $blogType = $row['type'];
-          echo "<li><a href='BlogHomePage.php?type=$blogType'>$blogType</a></li>";
+          echo "<li><a href='BlogHomePage.php?blogType=$blogType'>$blogType</a></li>";
         }
         ?>
       </ol>
