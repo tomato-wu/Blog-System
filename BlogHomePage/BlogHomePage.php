@@ -129,12 +129,7 @@ while ($row = mysqli_fetch_array($result)) {
       }
       // 博客的分类
       if (isset($_GET['blogType'])) {
-        $result = mysqli_query($conn, "SELECT * FROM blog_content where userName=$userName and type like '%{$_GET['blogType']}%' ");
-        while ($row = mysqli_fetch_array($result)) {
-      ?>
-          <?php echo "<li class=\"list-group-item\"><a style='color: black' href='#'>{$row['title']} </a></li>" ?>
-      <?php
-        }
+        require_once "./blogPage/classifyBlog.php";
       }
       ?>
       <!-- 博客的分类 -->

@@ -3,14 +3,10 @@
     我的博客
   </h2>
   <?php
-  if (isset($_GET['type'])) {
-    $result = mysqli_query($conn, "SELECT * FROM blog_content where user_id = 1 and type like '%{$_GET['type']}%' ");
-  } else {
-    $result = mysqli_query($conn, "SELECT * FROM blog_content where user_id = $userId");
-  }
+  $result = mysqli_query($conn, "SELECT * FROM blog_content where userName=$userName and type like '%{$_GET['blogType']}%' ");
   while ($row = mysqli_fetch_array($result)) {
   ?>
-    <?php echo "<li class=\"list-group-item\"><a style='color: black' href='index.php?blog_id={$row['blog_id']}'>{$row['title']} </a></li>" ?>
+    <?php echo "<li class=\"list-group-item\"><a style='color: black' href='#'>{$row['title']} </a></li>" ?>
   <?php
   }
   ?>
