@@ -92,7 +92,6 @@ while ($row = mysqli_fetch_array($result)) {
             <li><a href="#" class="nav-link px-2 text-white">我的收藏</a></li>
             <li><a href="?type=settingPage" class="nav-link px-2 text-white">账号设置</a></li>
             <li><a href="#" class="nav-link px-2 text-white">管理</a></li>
-            <li><a href="https://blog.csdn.net/weixin_45644335?spm=1010.2135.3001.5343" class="nav-link px-2 text-white" target="_blank">我的CSDN</a></li>
 
           </ul>
           <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -127,12 +126,14 @@ while ($row = mysqli_fetch_array($result)) {
           require_once "./settingPage/settingInformation.php";
         }
       }
-      // 博客的分类
+      // 博客的分类=============================================================================================================
       if (isset($_GET['blogType'])) {
         require_once "./blogPage/classifyBlog.php";
       }
       ?>
-      <!-- 博客的分类 -->
+      <!-- 博客的分类============================================================================================================= -->
+
+
       <!-- 右边侧边栏关于博主的介绍 -->
       <?php
       require_once("./aboutMe.php")

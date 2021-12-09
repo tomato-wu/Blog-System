@@ -7,7 +7,7 @@
   $result = mysqli_query($conn, $sql);
   while ($row = mysqli_fetch_array($result)) {
     $blogTitle = $row['title'];
-    echo "<li class=\"list-group-item\"><a style='color: black' href=''>$blogTitle</a></li>";
+    echo "<li class=\"list-group-item\"><a style='color: black' href='../BlogDetail/myBlogDetail.php?blog_id={$row['blog_id']}'>$blogTitle</a></li>";
   }
   ?>
 </div>

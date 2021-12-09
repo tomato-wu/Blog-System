@@ -17,7 +17,7 @@
         $sql = "SELECT * FROM blog_type where userName=$userName";
         $result = mysqli_query($conn, $sql);
         while ($row = mysqli_fetch_array($result)) {
-          global  $blogType;
+          global $blogType;
           $blogType = $row['type'];
           echo "<li><a href='BlogHomePage.php?blogType=$blogType'>$blogType</a></li>";
         }
@@ -28,9 +28,9 @@
     <div class="p-4">
       <h4 class="fst-italic">我的项目</h4>
       <ol class="list-unstyled">
-        <li><a href="#">GitHub</a></li>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">Facebook</a></li>
+        <li><a href="https://github.com/tomato-wu" target="_blank">GitHub</a></li>
+        <li><a href="https://tomato-wu.github.io/" target="_blank">我的个人博客</a></li>
+        <li><a href="https://blog.csdn.net/weixin_45644335?spm=1000.2115.3001.5343" target="_blank">我的CSDN</a></li>
       </ol>
     </div>
   </div>

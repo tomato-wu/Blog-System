@@ -28,7 +28,4 @@
     </div>
     <input type="button" class="btn btn-outline-primary btnStyle" value="修改"></input>
   </form>
-
-
-
 </div>
