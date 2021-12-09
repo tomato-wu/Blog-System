@@ -23,11 +23,20 @@ $name = $row['name'];
   <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="../BlogHomePage/blog.css" rel="stylesheet">
 
+  <style>
+    .articleStyle {
+      padding: 50px;
+    }
+
+    nav {
+      padding: 50px;
+    }
+  </style>
 </head>
 
 <body>
 
-  <article class="blog-post">
+  <article class="blog-post articleStyle">
     <h2 class="blog-post-title">
       <?php
       echo $title;
