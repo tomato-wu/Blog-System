@@ -24,6 +24,12 @@ $name = $row['name'];
   echo $title;
   ?>
 </h1>
+<p>
+  <?php echo $time ?>
+  &nbsp;&nbsp;
+  <?php echo $name ?></p>
+
+<p><?php echo $content ?></p>
 
 <body>
 
