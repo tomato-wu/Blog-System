@@ -1,7 +1,11 @@
 <?php
 session_start();
-$userName = $_SESSION['RightUserName'];
 require_once('../conn.php');
+$userName = $_SESSION['RightUserName'];
+$sql = "SELECT * FROM users where userName=$userName";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_array($result);
+$name = $row['name'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,8 +43,12 @@ require_once('../conn.php');
 
 <body>
   <!-- =======================修改表单=============================================================== -->
-  <form method="post" action="BlogChangeInfo.php" class="formStyle">
+  <form method="post" action="./addBlogMethod.php" class="formStyle">
 
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">文章作者：</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" name="name" value="<?php echo $name ?>" readonly>
+    </div>
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">文章标题：</label>
       <input type="text" class="form-control" id="exampleFormControlInput1" name="title" value="">
