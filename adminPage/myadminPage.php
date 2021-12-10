@@ -99,7 +99,7 @@ $userName = $_SESSION['RightUserName'];
                         <td> $blogTitle</td>
                         <td>$create_time</td>
                         <td>
-                          <a href='#'>编辑</a>
+                          <a href='../BlogDetail/editBlog.php?blog_id=$blog_id'>编辑</a>
                           <a href='./deleteBlog.php?blog_id=$blog_id'>删除</a>
                         </td>
                       </tr>
@@ -124,7 +124,7 @@ $userName = $_SESSION['RightUserName'];
                 <td> $blogTitle</td>
                 <td>$create_time</td>
                 <td>
-                    <a href='#'>编辑</a>
+                    <a href='../BlogDetail/editBlog.php?blog_id=$blog_id'>编辑</a>
                     <a href='./deleteBlog.php?blog_id=$blog_id'>删除</a>
                 </td>
               </tr>

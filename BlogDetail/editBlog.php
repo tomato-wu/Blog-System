@@ -1,4 +1,7 @@
 <?php
+session_start();
+$userName = $_SESSION['RightUserName'];
+
 require_once('../conn.php');
 $blog_id = $_GET['blog_id'];
 $result = mysqli_query($conn, "SELECT * FROM blog_content where blog_id = $blog_id ");
@@ -37,6 +40,10 @@ $name = $row['name'];
       padding-top: 50px;
 
     }
+
+    .selectStyle {
+      width: 200px;
+    }
   </style>
 </head>
 
@@ -50,6 +57,21 @@ $name = $row['name'];
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">文章标题：</label>
       <input type="text" class="form-control" id="exampleFormControlInput1" name="title" value="<?php echo $title ?>">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">文章分类：</label>
+      <select class="form-select selectStyle" aria-label="Default select example" name="type">
+        <option selected><?php echo $type ?></option>
+        <?php
+        $sql = "select * from blog_type where userName=$userName";
+        $result = mysqli_query($conn, $sql);
+        while ($row = mysqli_fetch_array($result)) {
+          $type = $row['type'];
+          echo " <option value='$type'>$type</option>";
+        }
+        ?>
+
+      </select>
     </div>
     <div class="mb-3">
       <label for="exampleFormControlTextarea1" class="form-label">文章内容：</label>
