@@ -20,6 +20,10 @@ $userName = $_GET['userName'];
       top: -10px;
       height: 5vh;
     }
+
+    .table {
+      width: 75vw;
+    }
   </style>
 </head>
 
@@ -36,7 +40,7 @@ $userName = $_GET['userName'];
   <div class="container">
     <div class="row">
       <!-- 导航栏 -->
-      <div class="col-4">
+      <div class="col-2">
         <ul class="nav flex-column">
 
           <?php
@@ -53,7 +57,7 @@ $userName = $_GET['userName'];
       </div>
 
       <!-- 右边显示的界面 -->
-      <div class="col-8">
+      <div class="col-9">
         <table class="table">
           <thead class="thead-dark">
             <tr>
@@ -65,15 +69,31 @@ $userName = $_GET['userName'];
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
 
+            <?php
+            $sql = "SELECT * FROM blog_content where userName=$userName";
+            $result = mysqli_query($conn, $sql);
+            while ($row = mysqli_fetch_array($result)) {
+              $blog_id = $row['blog_id'];
+              $name = $row['name'];
+              $type = $row['type'];
+              $blogTitle = $row['title'];
+              $create_time = $row['create_time'];
+
+              echo "
+              <tr>
+              <th scope='row'>$blog_id</th>
+              <td>$type</td>
+              <td> $blogTitle</td>
+              <td>$create_time</td>
+              <td>
+                  <a href='#'>删除</a>
+                  <a href='#'>修改</a>
+              </td>
             </tr>
-
+            ";
+            }
+            ?>
           </tbody>
         </table>
       </div>
