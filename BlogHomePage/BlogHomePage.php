@@ -91,7 +91,7 @@ while ($row = mysqli_fetch_array($result)) {
             <li><a href="?type=myblog" class="nav-link px-2 text-secondary">首页</a></li>
             <li><a href="#" class="nav-link px-2 text-white">我的收藏</a></li>
             <li><a href="?type=settingPage" class="nav-link px-2 text-white">账号设置</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">管理</a></li>
+            <li><a href="../adminPage/myadminPage.php?userName='<?php echo $userName ?>'" class="nav-link px-2 text-white">管理</a></li>
 
           </ul>
           <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
