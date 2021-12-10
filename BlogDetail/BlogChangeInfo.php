@@ -7,10 +7,10 @@ $sql = "UPDATE blog_content SET title='$title',content='$content' WHERE blog_id=
 $result = mysqli_query($conn, $sql);
 if ($result) {
   echo "<script>alert('发布成功');//弹出框
-window.location='editBlog.php?blog_id=$blog_id'</script>";
+window.location='myBlogDetail.php?blog_id=$blog_id'</script>";
 } else {
   echo "<script>alert('修改失败');
-window.location='blog_id.php?blog_id=$blog_id'</script>";
+window.location='myBlogDetail.php?blog_id=$blog_id'</script>";
 }
 
 ?>

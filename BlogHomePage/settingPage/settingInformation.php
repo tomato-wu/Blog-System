@@ -10,7 +10,14 @@
     $info = $row['info'];
   }
   ?>
-  <form method="post" action="changeInfo.php">
+  <form method="post" action="./settingPage/changeInfo.php">
+    <!-- 用户电话号码 -->
+    <div class="mb-3 row">
+      <label for="inputPassword" class="col-sm-2 col-form-label">用户电话号码</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="inputPassword" name="userName" readonly value="<?php echo $userName ?>">
+      </div>
+    </div>
     <!-- 用户昵称 -->
     <div class="mb-3 row">
       <label for="inputPassword" class="col-sm-2 col-form-label">用户昵称</label>
@@ -26,6 +33,6 @@
         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="info"><?php echo $info ?></textarea>
       </div>
     </div>
-    <input type="button" class="btn btn-outline-primary btnStyle" value="修改"></input>
+    <button class="btn btn-outline-primary btnStyle">修改</button>
   </form>
 </div>
