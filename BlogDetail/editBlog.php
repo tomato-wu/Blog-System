@@ -28,9 +28,8 @@ $name = $row['name'];
       height: 400px;
     }
 
-    .btnStyle {
-      margin-left: 10vw;
-      width: 20vw;
+    .formStyle {
+      padding: 50px 100px;
     }
 
     nav {
@@ -42,34 +41,32 @@ $name = $row['name'];
 </head>
 
 <body>
-  <h1>修改界面</h1>
-  <form method="post" action="changeInfo.php">
-    <!-- 用户昵称 -->
-    <div class="mb-3 row">
-      <label for="inputPassword" class="col-sm-1 col-form-label">文章标题：</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" id="inputPassword" name="name" value="<?php echo $title ?>">
-      </div>
+  <!-- =======================修改表单=============================================================== -->
+  <form method="post" action="BlogChangeInfo.php" class="formStyle">
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">文章编号：</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" name="blog_id" readonly value="<?php echo $blog_id ?>">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">文章标题：</label>
+      <input type="text" class="form-control" id="exampleFormControlInput1" name="title" value="<?php echo $title ?>">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlTextarea1" class="form-label">文章内容：</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="content"><?php echo $content ?></textarea>
     </div>
 
-    <!-- 个人简介 -->
-    <div class="mb-3 row">
-      <label for="inputPassword" class="col-sm-1 col-form-label">内容：</label>
-      <div class="col-sm-10">
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="info"><?php echo $content ?></textarea>
-      </div>
-    </div>
-    <!-- <input type="button" class="btn btn-outline-primary btnStyle" value="修改"></input> -->
     <nav class="blog-pagination" aria-label="Pagination">
-      <a class="btn btn-outline-primary" style="margin-right: 30px;" href="#">发布</a>
+      <button class="btn btn-outline-primary" style="margin-right: 30px;">发布</button>
       <a class="btn btn-outline-secondary" onclick="backTo()">取消</a>
     </nav>
   </form>
 
+  <!-- =======================修改表单=============================================================== -->
 
   <script>
     function backTo() {
-      history.back();
+      window.location = 'myBlogDetail.php?blog_id=<?php echo $blog_id ?>';
     }
   </script>
 </body>

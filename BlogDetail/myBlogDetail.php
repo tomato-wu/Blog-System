@@ -37,21 +37,16 @@ $name = $row['name'];
 <body>
 
   <article class="blog-post articleStyle">
+    <!-- 标题 -->
     <h2 class="blog-post-title">
       <?php
       echo $title;
       ?>
     </h2>
+    <!-- 发布时间和作者 -->
     <p class="blog-post-meta"> <?php echo $time ?> <a href="#"> <?php echo $name ?></a></p>
+    <!-- 文章内容 -->
     <p><?php echo $content ?></p>
-
-    <p>This is some additional paragraph placeholder content. It has been written to fill the available space and show how a longer snippet of text affects the surrounding content. We'll repeat it often to keep the demonstration flowing, so be on the lookout for this exact same string of text.</p>
-    <ul>
-      <li>First list item</li>
-      <li>Second list item with a longer description</li>
-      <li>Third list item to close it out</li>
-    </ul>
-    <p>This is some additional paragraph placeholder content. It's a slightly shorter version of the other highly repetitive body text used throughout.</p>
   </article>
 
   <nav class="blog-pagination" aria-label="Pagination">
@@ -61,7 +56,8 @@ $name = $row['name'];
 
   <script>
     function backTo() {
-      history.back();
+      window.location = '../BlogHomePage/BlogHomePage.php?type=myblog'
+
     }
   </script>
 </body>
