@@ -77,9 +77,7 @@ while ($row = mysqli_fetch_array($result)) {
               ?>
             </strong></a>
         </div>
-        <div class="col-4 d-flex justify-content-end align-items-center">
-          <a class="btn btn-sm btn-outline-secondary" href="../index.php">退出</a>
-        </div>
+
       </div>
     </header>
 
@@ -88,9 +86,9 @@ while ($row = mysqli_fetch_array($result)) {
       <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="?type=myblog" class="nav-link px-2 text-secondary">首页</a></li>
-            <li><a href="#" class="nav-link px-2 text-white">我的收藏</a></li>
+            <li><a href="?type=myblog" class="nav-link px-2 text-white">首页</a></li>
             <li><a href="?type=settingPage" class="nav-link px-2 text-white">账号设置</a></li>
+            <li><a href="?type=TomatoBlog" class="nav-link px-2 text-white">我的个人博客介绍</a></li>
             <li><a href="../adminPage/myadminPage.php?userName='<?php echo $userName ?>'" class="nav-link px-2 text-white">管理</a></li>
 
           </ul>
@@ -98,7 +96,8 @@ while ($row = mysqli_fetch_array($result)) {
             <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
           </form>
           <div class="text-end">
-            <button type="button" class="btn btn-outline-light me-2">Login</button>
+            <a type="button" class="btn btn-danger" href="../index.php" style="width: 6vw;">退出</a>
+
             <a type="button" class="btn btn-primary" href="../addBlog/addBlog.php">创作博客</a>
           </div>
         </div>
@@ -124,6 +123,9 @@ while ($row = mysqli_fetch_array($result)) {
         }
         if ($_GET['type'] == 'settingPage') {
           require_once "./settingPage/settingInformation.php";
+        }
+        if ($_GET['type'] == 'TomatoBlog') {
+          require_once "./TomatoBlog.php";
         }
       }
       // 博客的分类=============================================================================================================
