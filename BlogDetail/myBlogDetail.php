@@ -57,7 +57,6 @@ $name = $row['name'];
   <script>
     function backTo() {
       window.location = '../BlogHomePage/BlogHomePage.php?type=myblog'
-
     }
   </script>
 </body>

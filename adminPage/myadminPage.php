@@ -1,6 +1,7 @@
 <?php
+session_start();
 require_once('../conn.php');
-$userName = $_GET['userName'];
+$userName = $_SESSION['RightUserName'];
 
 ?>
 <!DOCTYPE html>
@@ -24,6 +25,12 @@ $userName = $_GET['userName'];
     .table {
       width: 75vw;
     }
+
+    .backBtnStyle {
+      position: absolute;
+      top: 80px;
+      right: 80px;
+    }
   </style>
 </head>
 
@@ -34,7 +41,10 @@ $userName = $_GET['userName'];
       <h1 class="display-5">博客后台管理界面</h1>
       <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
     </div>
+    <a class="btn btn-primary btn-lg backBtnStyle" href="../BlogHomePage/BlogHomePage.php?type=myblog" role="button">返回主页</a>
   </div>
+
+
 
   <!-- 下边的分类导航栏 -->
   <div class="container">
@@ -42,17 +52,16 @@ $userName = $_GET['userName'];
       <!-- 导航栏 -->
       <div class="col-2">
         <ul class="nav flex-column">
-
+          <li class='nav-item'><a class='nav-link active' href="./myadminPage.php?userName=<?php echo $userName ?>">全部</a></li>
           <?php
           $sql = "SELECT * FROM blog_type where userName=$userName";
           $result = mysqli_query($conn, $sql);
           while ($row = mysqli_fetch_array($result)) {
             global $blogType;
             $blogType = $row['type'];
-            echo "<li class='nav-item'><a class='nav-link active' href='#'>$blogType</a></li>";
+            echo "<li class='nav-item'><a class='nav-link active' href='./myadminPage.php?BlogTypeValue=$blogType'>$blogType</a></li>";
           }
           ?>
-
         </ul>
       </div>
 
@@ -71,28 +80,58 @@ $userName = $_GET['userName'];
           <tbody>
 
             <?php
-            $sql = "SELECT * FROM blog_content where userName=$userName";
-            $result = mysqli_query($conn, $sql);
-            while ($row = mysqli_fetch_array($result)) {
-              $blog_id = $row['blog_id'];
-              $name = $row['name'];
-              $type = $row['type'];
-              $blogTitle = $row['title'];
-              $create_time = $row['create_time'];
 
-              echo "
-              <tr>
-              <th scope='row'>$blog_id</th>
-              <td>$type</td>
-              <td> $blogTitle</td>
-              <td>$create_time</td>
-              <td>
-                  <a href='#'>删除</a>
-                  <a href='#'>修改</a>
-              </td>
-            </tr>
-            ";
+            // 点击侧边栏的时候显示不同类别的博客
+            if (isset($_GET['BlogTypeValue'])) {
+              $sql =  "SELECT * FROM blog_content where userName=$userName and type like '%{$_GET['BlogTypeValue']}%' ";
+              $result = mysqli_query($conn, $sql);
+              while ($row = mysqli_fetch_array($result)) {
+                $blog_id = $row['blog_id'];
+                $name = $row['name'];
+                $type = $row['type'];
+                $blogTitle = $row['title'];
+                $create_time = $row['create_time'];
+
+                echo "
+                      <tr>
+                        <th scope='row'>$blog_id</th>
+                        <td>$type</td>
+                        <td> $blogTitle</td>
+                        <td>$create_time</td>
+                        <td>
+                          <a href='#'>编辑</a>
+                          <a href='./deleteBlog.php?blog_id=$blog_id'>删除</a>
+                        </td>
+                      </tr>
+                      ";
+              }
             }
+            // 刚进来的时候显示所有的博客
+            if (isset($_GET['userName'])) {
+              $sql = "SELECT * FROM blog_content where userName=$userName";
+              $result = mysqli_query($conn, $sql);
+              while ($row = mysqli_fetch_array($result)) {
+                $blog_id = $row['blog_id'];
+                $name = $row['name'];
+                $type = $row['type'];
+                $blogTitle = $row['title'];
+                $create_time = $row['create_time'];
+
+                echo "
+                <tr>
+                <th scope='row'>$blog_id</th>
+                <td>$type</td>
+                <td> $blogTitle</td>
+                <td>$create_time</td>
+                <td>
+                    <a href='#'>编辑</a>
+                    <a href='./deleteBlog.php?blog_id=$blog_id'>删除</a>
+                </td>
+              </tr>
+              ";
+              }
+            }
+
             ?>
           </tbody>
         </table>
