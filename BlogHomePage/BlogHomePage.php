@@ -99,7 +99,7 @@ while ($row = mysqli_fetch_array($result)) {
           </form>
           <div class="text-end">
             <button type="button" class="btn btn-outline-light me-2">Login</button>
-            <button type="button" class="btn btn-warning">Sign-up</button>
+            <a type="button" class="btn btn-primary" href="../addBlog/addBlog.php">创作博客</a>
           </div>
         </div>
       </div>
