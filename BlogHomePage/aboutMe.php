@@ -7,7 +7,7 @@
       <div class="card mb-3">
         <img src="../assets/images/code.png" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
+          <h5 class="card-title"><?php echo $name; ?></h5>
           <p class="card-text"><?php echo $info; ?></p>
         </div>
 
