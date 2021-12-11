@@ -65,22 +65,7 @@ while ($row = mysqli_fetch_array($result)) {
 
 <body>
 
-  <div class="container">
-    <!-- 头部header -->
-    <header class="blog-header py-3">
-      <div class="row flex-nowrap justify-content-between align-items-center">
-
-        <div class="col-3 text-center">
-          <a class="blog-header-logo text-dark" href="#"><strong>
-              <?php
-              echo $name . "的博客";
-              ?>
-            </strong></a>
-        </div>
-
-      </div>
-    </header>
-
+  <div>
     <!-- 导航栏 -->
     <header class="p-3 bg-dark text-white navStyle">
       <div class="container">
@@ -92,9 +77,7 @@ while ($row = mysqli_fetch_array($result)) {
             <li><a href="../adminPage/myadminPage.php?userName='<?php echo $userName ?>'" class="nav-link px-2 text-white">管理</a></li>
 
           </ul>
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-            <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-          </form>
+
           <div class="text-end">
             <a type="button" class="btn btn-danger" href="../index.php" style="width: 6vw;">退出</a>
 
@@ -102,6 +85,7 @@ while ($row = mysqli_fetch_array($result)) {
           </div>
         </div>
       </div>
+
     </header>
   </div>
 

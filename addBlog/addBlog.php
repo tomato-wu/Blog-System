@@ -83,7 +83,7 @@ $name = $row['name'];
 
   <script>
     function backTo() {
-      window.location = 'myBlogDetail.php?blog_id=<?php echo $blog_id ?>';
+      window.location = '../BlogHomePage/BlogHomePage.php?type=myblog';
     }
   </script>
 </body>
