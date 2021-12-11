@@ -7,7 +7,7 @@
   <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
       <div class="col-md-4">
-        <img src="../assets/images/code.png" class="img-fluid rounded-start" alt="图片加载不出来" style="width: 100%;height:100%;">
+        <img src="../assets/images/5.jpg" class="img-fluid rounded-start" alt="图片加载不出来" style="width: 100%;height:100%;">
       </div>
       <div class="col-md-8">
         <div class="card-body">
