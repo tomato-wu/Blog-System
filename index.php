@@ -30,7 +30,8 @@
           <!-- 表单 -->
           <form action="loginUser.php" method="post" target='_blank' name="formBox" onsubmit="return LoginBtn()">
             <h2>登录</h2>
-            <input type="text" placeholder="账号" name="userName">
+            <input type="text" placeholder="账号" name="userName" onblur="checkLoginName(this.value)">
+            <span id="LoginText"> </span>
             <input type="password" placeholder="密码" name="userPass">
             <input type="submit" name="userSubmit" value="登录">
             <p class="signup">是否是有账号？<a href="#" onclick="
@@ -130,6 +131,28 @@
         }
       }
       xmlhttp.open("GET", "checkName.php?q=" + str + "&t=" + Math.random(), true);
+      xmlhttp.send();
+    }
+
+    // ajax验证注册的电话号码是否已经使用
+    function checkLoginName(str) {
+      if (str == "") {
+        document.getElementById("LoginText").innerHTML = "";
+        return;
+      }
+      if (window.XMLHttpRequest) {
+        // IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+        xmlhttp = new XMLHttpRequest();
+      } else {
+        // IE6, IE5 浏览器执行代码
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+      }
+      xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+          document.getElementById("LoginText").innerHTML = xmlhttp.responseText;
+        }
+      }
+      xmlhttp.open("GET", "checkLoginName.php?q=" + str + "&t=" + Math.random(), true);
       xmlhttp.send();
     }
 
