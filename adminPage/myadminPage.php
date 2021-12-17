@@ -52,6 +52,39 @@ $userName = $_SESSION['RightUserName'];
       <!-- 导航栏 -->
       <div class="col-2">
         <ul class="nav flex-column">
+          <!-- 创建分类 -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">创建分类</button>
+          <!-- 弹出框 -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">创建分类</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form method="post" action="./addFenLei.php">
+                    <!-- 分类名称 -->
+                    <div class="form-group">
+                      <label for="recipient-name" class="col-form-label">分类名称:</label>
+                      <input type="text" class="form-control" id="recipient-name" name="type" value="">
+                    </div>
+                    <!-- 按钮 -->
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                      <button class="btn btn-primary">创建</button>
+                    </div>
+                  </form>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <!-- 弹出框 -->
+
+          <!-- <button type="button" class="btn btn-primary" onclick="addFenLei()">不啊分类</button> -->
           <li class='nav-item'><a class='nav-link active' href="./myadminPage.php?userName=<?php echo $userName ?>">全部</a></li>
           <?php
           $sql = "SELECT * FROM blog_type where userName=$userName";
@@ -144,6 +177,11 @@ $userName = $_SESSION['RightUserName'];
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+  <script>
+    function addFenLei() {
+      window.location = '../BlogHomePage/BlogHomePage.php?type=myblog';
+    }
+  </script>
 </body>
 
 </html>

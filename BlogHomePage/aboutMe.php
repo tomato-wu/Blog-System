@@ -10,9 +10,6 @@
           <h5 class="card-title"><?php echo $name; ?></h5>
           <p class="card-text"><?php echo $info; ?></p>
         </div>
-
-
-
         <div class="p-4">
           <p class="card-text"><small class="text-muted">我的专栏</small></p>
           <ol class="list-unstyled mb-0">
@@ -38,9 +35,5 @@
         </ol>
       </div>
     </div>
-
-
-
-
   </div>
 </div>
