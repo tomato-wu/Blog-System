@@ -84,7 +84,6 @@ $userName = $_SESSION['RightUserName'];
           </div>
           <!-- 弹出框 -->
 
-          <!-- <button type="button" class="btn btn-primary" onclick="addFenLei()">不啊分类</button> -->
           <li class='nav-item'><a class='nav-link active' href="./myadminPage.php?userName=<?php echo $userName ?>">全部</a></li>
           <?php
           $sql = "SELECT * FROM blog_type where userName=$userName";
@@ -124,19 +123,24 @@ $userName = $_SESSION['RightUserName'];
                 $type = $row['type'];
                 $blogTitle = $row['title'];
                 $create_time = $row['create_time'];
+            ?>
 
-                echo "
-                      <tr>
-                        <th scope='row'>$blog_id</th>
-                        <td>$type</td>
-                        <td> $blogTitle</td>
-                        <td>$create_time</td>
-                        <td>
-                          <a href='../BlogDetail/editBlog.php?blog_id=$blog_id'>编辑</a>
-                          <a href='./deleteBlog.php?blog_id=$blog_id'>删除</a>
-                        </td>
-                      </tr>
-                      ";
+                <tr>
+                  <th scope='row'><?php echo $blog_id ?></th>
+                  <td><?php echo $type ?></td>
+                  <td> <?php echo $blogTitle ?></td>
+                  <td><?php echo $create_time ?></td>
+                  <td>
+                    <a href='../BlogDetail/editBlog.php?blog_id=<?php echo $blog_id ?>'>编辑</a>
+                    <a href='./deleteBlog.php?blog_id=<?php echo $blog_id ?>'>删除</a>
+                  </td>
+                </tr>
+
+
+
+
+
+            <?php
               }
             }
             // 刚进来的时候显示所有的博客
@@ -177,11 +181,7 @@ $userName = $_SESSION['RightUserName'];
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-  <script>
-    function addFenLei() {
-      window.location = '../BlogHomePage/BlogHomePage.php?type=myblog';
-    }
-  </script>
+
 </body>
 
 </html>
