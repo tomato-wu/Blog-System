@@ -92,7 +92,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userName`, `password`, `name`, `info`) VALUES
-('18316722273', '12', '邬坤源', '这里是作者的个人说明，本系统使用html,css,javascript和bootstrap框架以及php搭建的一个简易的个人博客系统');
+('18316722273', 'c20ad4d76fe97759aa27a0c99bff6710', '邬坤源', '这里是作者的个人说明，本系统使用html,css,javascript和bootstrap框架以及php搭建的一个简易的个人博客系统');
 
 --
 -- 转储表的索引
