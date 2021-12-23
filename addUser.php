@@ -16,8 +16,9 @@ require_once("conn.php");
     $userName = $_POST['RegisterUserName'];
     $userPass1 = $_POST['userPass1'];
     $userPass2 = $_POST['userPass2'];
+    $MD5Password  = md5($userPass2);
     $name = $_POST['name'];
-    $sql = "insert into users(userName,password,name) value( '$userName','$userPass1','$name' )";
+    $sql = "insert into users(userName,password,name) value( '$userName','$MD5Password','$name' )";
     if (mysqli_query($conn, $sql)) {
         echo "<script>alert('注册成功，马上登录')</script>";
         header("Refresh:0;url=index.php");

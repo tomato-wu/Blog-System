@@ -26,6 +26,8 @@ SET time_zone = "+00:00";
 --
 -- 表的结构 `blog_content`
 --
+CREATE database blogdatabase;
+use blogdatabase;
 
 CREATE TABLE `blog_content` (
   `blog_id` int(20) NOT NULL COMMENT '主键',
@@ -80,7 +82,7 @@ INSERT INTO `blog_type` (`type_id`, `userName`, `type`) VALUES
 
 CREATE TABLE `users` (
   `userName` char(20) NOT NULL,
-  `password` char(20) NOT NULL,
+  `password` char(220) NOT NULL,
   `name` varchar(30) DEFAULT NULL,
   `info` varchar(500) DEFAULT NULL COMMENT '个人简介'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
